@@ -1,5 +1,4 @@
 
-
 https://github.com/mastering-microservices/tutorial/blob/master/monolith-mvn.md
 
 ```
@@ -57,7 +56,9 @@ hipster module to run integration tests with java testcontainers, (generator-jhi
  .yml files allowing you to administrate your production database (managing databases likephpmyadmin). For the moment the following databases are suppo
 rted : MYSQL, POSTGRESQL, MONGODB, MARIADB., (generator-jhipster-database-backup-1.0.7) The purpose of this module is to perform periodic backups of yo
 ur database. This backup docker image currently supports MYSQL, POSTGRESQL, MONGODB and MARIADB.
-'''
+```
+
+# Ajout du CI-CD
 
 ```
  npalix@yttrium coopcycle $ jhipster ci-cd
@@ -84,4 +85,4 @@ INFO! Options: from-cli: true
    create src/main/docker/jenkins.yml
    create src/main/docker/docker-registry.yml
 INFO! Congratulations, JHipster execution is complete!
-'''
+```
