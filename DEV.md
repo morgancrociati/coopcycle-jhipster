@@ -1,4 +1,9 @@
- npalix@yttrium coopcycle $ jhipster
+
+
+https://github.com/mastering-microservices/tutorial/blob/master/monolith-mvn.md
+
+```
+npalix@yttrium coopcycle $ jhipster
 INFO! Using JHipster version installed globally
 INFO! Running default command
 INFO! Executing jhipster:app
@@ -52,9 +57,9 @@ hipster module to run integration tests with java testcontainers, (generator-jhi
  .yml files allowing you to administrate your production database (managing databases likephpmyadmin). For the moment the following databases are suppo
 rted : MYSQL, POSTGRESQL, MONGODB, MARIADB., (generator-jhipster-database-backup-1.0.7) The purpose of this module is to perform periodic backups of yo
 ur database. This backup docker image currently supports MYSQL, POSTGRESQL, MONGODB and MARIADB.
+'''
 
-
-
+```
  npalix@yttrium coopcycle $ jhipster ci-cd
 INFO! Using JHipster version installed locally in current project's node_modules
 INFO! Executing jhipster:ci-cd
@@ -64,7 +69,7 @@ INFO! Options: from-cli: true
 ? Would you like to perform the build in a Docker container ? Yes
 ? Would you like to send build status to GitLab ? Yes
 ? What tasks/integrations do you want to include ? Deploy your application to an *Artifactory*, Analyze your code with *Sonar*, Build and publish a *Docker* image, Deploy to *Heroku*
- (requires HEROKU_API_KEY set on CI service)
+ (requires H`EROKU_API_KEY set on CI service)
 ? *Artifactory*: what is the ID of distributionManagement for snapshots ? snapshots
 ? *Artifactory*: what is the URL of distributionManagement for snapshots ? http://artifactory:8081/artifactory/libs-snapshot
 ? *Artifactory*: what is the ID of distributionManagement for releases ? releases
@@ -79,3 +84,4 @@ INFO! Options: from-cli: true
    create src/main/docker/jenkins.yml
    create src/main/docker/docker-registry.yml
 INFO! Congratulations, JHipster execution is complete!
+'''
