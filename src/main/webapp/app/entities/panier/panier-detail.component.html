@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="panier">
+            <h2><span jhiTranslate="coopcycleApp.panier.detail.title">Panier</span> {{ panier.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="coopcycleApp.panier.etatPanier">Etat Panier</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'coopcycleApp.EtatPanier.' + panier.etatPanier }}">{{ panier.etatPanier }}</span>
+                </dd>
+                <dt><span jhiTranslate="coopcycleApp.panier.numCommande">Num Commande</span></dt>
+                <dd>
+                    <div *ngIf="panier.numCommande">
+                        <a [routerLink]="['/commande', panier.numCommande?.id, 'view']">{{ panier.numCommande?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/panier', panier.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+{
+  "coopcycleApp": {
+    "Preparation": {
+      "null": "",
+      "ATTENTE": "ATTENTE",
+      "PREPARATION": "PREPARATION",
+      "PRET": "PRET"
+    }
+  }
+}

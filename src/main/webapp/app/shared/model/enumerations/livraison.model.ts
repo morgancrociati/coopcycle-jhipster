@@ -1,0 +1,6 @@
+export const enum Livraison {
+  ATTENTELIVREUR = 'ATTENTELIVREUR',
+  ATTENTE = 'ATTENTE',
+  LIVRAISON = 'LIVRAISON',
+  LIVRE = 'LIVRE'
+}

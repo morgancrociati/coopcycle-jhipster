@@ -1,0 +1,96 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-commande-heading" jhiTranslate="coopcycleApp.commande.home.createOrEditLabel">Create or edit a Commande</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="coopcycleApp.commande.etatPrep" for="field_etatPrep">Etat Prep</label>
+                    <select class="form-control" name="etatPrep" formControlName="etatPrep" id="field_etatPrep">
+                        <option value="ATTENTE">{{ 'coopcycleApp.Preparation.ATTENTE' | translate }}</option>
+                        <option value="PREPARATION">{{ 'coopcycleApp.Preparation.PREPARATION' | translate }}</option>
+                        <option value="PRET">{{ 'coopcycleApp.Preparation.PRET' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('etatPrep')!.invalid && (editForm.get('etatPrep')!.dirty || editForm.get('etatPrep')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('etatPrep')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="coopcycleApp.commande.etatLiv" for="field_etatLiv">Etat Liv</label>
+                    <select class="form-control" name="etatLiv" formControlName="etatLiv" id="field_etatLiv">
+                        <option value="ATTENTELIVREUR">{{ 'coopcycleApp.Livraison.ATTENTELIVREUR' | translate }}</option>
+                        <option value="ATTENTE">{{ 'coopcycleApp.Livraison.ATTENTE' | translate }}</option>
+                        <option value="LIVRAISON">{{ 'coopcycleApp.Livraison.LIVRAISON' | translate }}</option>
+                        <option value="LIVRE">{{ 'coopcycleApp.Livraison.LIVRE' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('etatLiv')!.invalid && (editForm.get('etatLiv')!.dirty || editForm.get('etatLiv')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('etatLiv')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="coopcycleApp.commande.paiement" for="field_paiement">Paiement</label>
+                    <select class="form-control" name="paiement" formControlName="paiement" id="field_paiement">
+                        <option value="CB">{{ 'coopcycleApp.MoyenDePayement.CB' | translate }}</option>
+                        <option value="PAYPAL">{{ 'coopcycleApp.MoyenDePayement.PAYPAL' | translate }}</option>
+                        <option value="BITCOIN">{{ 'coopcycleApp.MoyenDePayement.BITCOIN' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('paiement')!.invalid && (editForm.get('paiement')!.dirty || editForm.get('paiement')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('paiement')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="coopcycleApp.commande.restaurant" for="field_restaurant">Restaurant</label>
+                    <select class="form-control" id="field_restaurant" name="restaurant" formControlName="restaurant">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="restaurantOption.id === editForm.get('restaurant')!.value?.id ? editForm.get('restaurant')!.value : restaurantOption" *ngFor="let restaurantOption of restaurants; trackBy: trackById">{{ restaurantOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="coopcycleApp.commande.livreur" for="field_livreur">Livreur</label>
+                    <select class="form-control" id="field_livreur" name="livreur" formControlName="livreur">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="compteOption.id === editForm.get('livreur')!.value?.id ? editForm.get('livreur')!.value : compteOption" *ngFor="let compteOption of comptes; trackBy: trackById">{{ compteOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="coopcycleApp.commande.client" for="field_client">Client</label>
+                    <select class="form-control" id="field_client" name="client" formControlName="client">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="compteOption.id === editForm.get('client')!.value?.id ? editForm.get('client')!.value : compteOption" *ngFor="let compteOption of comptes; trackBy: trackById">{{ compteOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

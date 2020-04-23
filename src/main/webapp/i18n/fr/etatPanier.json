@@ -1,0 +1,10 @@
+{
+  "coopcycleApp": {
+    "EtatPanier": {
+      "null": "",
+      "VIDE": "VIDE",
+      "ENCOURS": "ENCOURS",
+      "PAYE": "PAYE"
+    }
+  }
+}

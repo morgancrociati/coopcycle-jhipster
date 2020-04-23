@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-cooperative-heading" jhiTranslate="coopcycleApp.cooperative.home.createOrEditLabel">Create or edit a Cooperative</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="coopcycleApp.cooperative.nom" for="field_nom">Nom</label>
+                    <input type="text" class="form-control" name="nom" id="field_nom"
+                           formControlName="nom"/>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="coopcycleApp.cooperative.restaurant" for="field_restaurants">Restaurant</label>
+                    <select class="form-control" id="field_restaurants" multiple name="restaurants" formControlName="restaurants">
+                        <option [ngValue]="getSelected(editForm.get('restaurants')!.value, restaurantOption)" *ngFor="let restaurantOption of restaurants; trackBy: trackById">{{ restaurantOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="coopcycleApp.cooperative.adminsys" for="field_adminsys">Adminsys</label>
+                    <select class="form-control" id="field_adminsys" multiple name="adminsys" formControlName="adminsys">
+                        <option [ngValue]="getSelected(editForm.get('adminsys')!.value, compteOption)" *ngFor="let compteOption of comptes; trackBy: trackById">{{ compteOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="coopcycleApp.cooperative.admincoop" for="field_admincoops">Admincoop</label>
+                    <select class="form-control" id="field_admincoops" multiple name="admincoops" formControlName="admincoops">
+                        <option [ngValue]="getSelected(editForm.get('admincoops')!.value, compteOption)" *ngFor="let compteOption of comptes; trackBy: trackById">{{ compteOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

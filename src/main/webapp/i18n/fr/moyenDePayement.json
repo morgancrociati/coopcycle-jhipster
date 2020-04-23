@@ -1,0 +1,10 @@
+{
+  "coopcycleApp": {
+    "MoyenDePayement": {
+      "null": "",
+      "CB": "CB",
+      "PAYPAL": "PAYPAL",
+      "BITCOIN": "BITCOIN"
+    }
+  }
+}

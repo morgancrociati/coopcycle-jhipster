@@ -1,0 +1,7 @@
+export const enum Roles {
+  CLIENT = 'CLIENT',
+  RESTAURATEUR = 'RESTAURATEUR',
+  ADMINSYS = 'ADMINSYS',
+  ADMINCOOP = 'ADMINCOOP',
+  LIVREUR = 'LIVREUR'
+}

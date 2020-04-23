@@ -1,0 +1,11 @@
+{
+  "coopcycleApp": {
+    "Livraison": {
+      "null": "",
+      "ATTENTELIVREUR": "ATTENTELIVREUR",
+      "ATTENTE": "ATTENTE",
+      "LIVRAISON": "LIVRAISON",
+      "LIVRE": "LIVRE"
+    }
+  }
+}
