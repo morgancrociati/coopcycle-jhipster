@@ -1,0 +1,81 @@
+enum Roles {
+    CLIENT, RESTAURATEUR, ADMINSYS, ADMINCOOP, LIVREUR
+}
+
+entity Role {
+    role Roles required
+}
+
+entity Compte {
+    pseudo String required unique
+    email String required unique
+    motDePasse String required minlength(8)
+}
+
+entity Restaurant {
+    nom String required
+    type String required
+    description String
+}
+
+entity Cooperative {
+    id String required
+    nom String
+}
+
+enum EtatPanier {
+    VIDE, ENCOURS, PAYE
+}
+
+entity Panier {
+    etatPanier EtatPanier required
+}
+
+enum Dispo {
+    DISPONIBLE, RUPTURE
+}
+
+entity Produit {
+    nom String required
+    prix Float required min(0)
+    disponibilite Dispo required
+    description String
+}
+
+enum MoyenDePayement {
+    CB, PAYPAL, BITCOIN
+}
+
+enum Preparation {
+    ATTENTE, PREPARATION, PRET
+}
+
+enum Livraison {
+    ATTENTELIVREUR, ATTENTE, LIVRAISON, LIVRE
+}
+
+entity Commande {
+    id String required
+    etatPrep Preparation required
+    etatLiv Livraison required
+    paiement MoyenDePayement required
+}
+
+relationship ManyToMany {
+    Cooperative{restaurant} to Restaurant{cooperative}
+    Produit{panier} to Panier{produit}
+    Cooperative{adminsys} to Compte{adminsys}
+    Cooperative{admincoop} to Compte{admincoop}
+    Role{numCompte} to Compte{role}
+}
+
+relationship ManyToOne {
+    Produit{restaurant} to Restaurant
+    Commande{restaurant} to Restaurant
+    Commande{livreur} to Compte
+    Commande{client} to Compte
+}
+
+relationship OneToOne {
+    Panier{numCommande} to  Commande{numPanier}
+}
