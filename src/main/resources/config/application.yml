@@ -150,12 +150,12 @@ jhipster:
     title: coopcycle API
     description: coopcycle API documentation
     version: 0.0.1
-    terms-of-service-url:
-    contact-name:
-    contact-url:
-    contact-email:
-    license:
-    license-url:
+    terms-of-service-url: https://coopcycle.org/tos.php
+    contact-name: Morgan Crociati
+    contact-url: https://coopcycle.org/
+    contact-email: morgan.crociati@coopcycle.org
+    license: CC2.0
+    license-url: https://creativecommons.org/licenses/by-sa/2.0/fr/
 # ===================================================================
 # Application specific properties
 # Add your own application properties here, see the ApplicationProperties class
